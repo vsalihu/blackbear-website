@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Black Bear Pub</title>
+  <title>Events</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,33 +18,24 @@
     </nav>
   </header>
   <main>
-    <section class="events">
-      <h2>Upcoming Events</h2>
-      <div id="events-container"></div>
-    </section>
-    <script>
-      fetch('events/events.json')
-        .then(response => response.json())
-        .then(events => {
-          const container = document.getElementById('events-container');
-          events.forEach(event => {
-            container.innerHTML += `
-              <div class="event">
-                <h3>${event.title}</h3>
-                <p><strong>Date:</strong> ${event.date}</p>
-                <p>${event.description}</p>
-              </div>
-            `;
-          });
-        });
-    </script>
-      <h2>Welcome to the Black Bear</h2>
-      <p>Your cozy local pub in Wisbech. Serving great food, local ales, and good vibes!</p>
-      <img src="images/pub-front.jpg" alt="Front of Black Bear Pub">
-    </section>
+    
+<h2>Upcoming Events</h2>
+<div id="events-container"></div>
+<script>
+  fetch('events/events.json')
+    .then(response => response.json())
+    .then(events => {
+      const container = document.getElementById('events-container');
+      events.forEach(event => {
+        container.innerHTML += `
+          <div class="event">
+            <h3>${event.title}</h3>
+            <p><strong>Date:</strong> ${event.date}</p>
+            <p>${event.description}</p>
+          </div>`;
+      });
+    });
+</script>
   </main>
-  <footer>
-    <p>&copy; 2025 Black Bear Pub. All rights reserved.</p>
-  </footer>
 </body>
 </html>
