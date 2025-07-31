@@ -9,9 +9,7 @@
     <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
   </head>
   <body>
-    <!-- This is where Netlify CMS attaches the UI -->
     <div id="nc-root"></div>
-
     <script>
       window.addEventListener('load', function () {
         CMS.init({
@@ -19,6 +17,9 @@
             backend: {
               name: "git-gateway",
               branch: "main"
+            },
+            auth: {
+              login: true
             },
             media_folder: "images/uploads",
             public_folder: "/images/uploads",
