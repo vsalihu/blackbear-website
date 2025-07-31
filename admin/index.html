@@ -9,32 +9,37 @@
     <div id="nc-root"></div>
     <script>
       window.addEventListener('load', function () {
-        CMS.init({
-          config: {
-            backend: {
-              name: "git-gateway",
-              branch: "main"
-            },
-            media_folder: "images/uploads",
-            public_folder: "/images/uploads",
-            collections: [
-              {
-                name: "events",
-                label: "Events",
-                folder: "events",
-                create: true,
-                slug: "{{slug}}",
-                extension: "json",
-                format: "json",
-                fields: [
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Date", name: "date", widget: "datetime" },
-                  { label: "Descriptin", name: "description", widget: "text" }
-                ]
-              }
-            ]
-          }
-        });
+        if (typeof CMS !== 'undefined') {
+          CMS.init({
+            config: {
+              load_config_file: false,  // THIS is the secret — disables config.yml lookup
+              backend: {
+                name: "git-gateway",
+                branch: "main"
+              },
+              media_folder: "images/uploads",
+              public_folder: "/images/uploads",
+              collections: [
+                {
+                  name: "events",
+                  label: "Events",
+                  folder: "events",
+                  create: true,
+                  slug: "{{slug}}",
+                  extension: "json",
+                  format: "json",
+                  fields: [
+                    { label: "Title", name: "title", widget: "string" },
+                    { label: "Date", name: "date", widget: "datetime" },
+                    { label: "Description", name: "description", widget: "text" }
+                  ]
+                }
+              ]
+            }
+          });
+        } else {
+          console.error("CMS failed to load");
+        }
       });
     </script>
   </body>
