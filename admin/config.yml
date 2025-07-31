@@ -8,9 +8,9 @@ public_folder: "/images/uploads"
 collections:
   - name: "events"
     label: "Events"
-    label_singular: "Event"
     folder: "events"
     create: true
+    slug: "{{slug}}"
     extension: "json"
     format: "json"
     fields:
